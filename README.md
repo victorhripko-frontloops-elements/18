@@ -1,21 +1,5 @@
-# Template for FrontLoops [Elements] challenge
+# Video player
 
-Install all dependencies
-```bash
-npm i
-```
-
-For start watching all files use:
-```bash
-npm run start
-```
-
-then open in browser
-```bash
-http://localhost:1234/
-```
-
-For build all files use:
-```bash
-npm run build
-```
+Build a video player that starts/stops playing by preview click.
+It displays the progress bar for the video.
+Video can be fast forwarded by 10 seconds in both directions and reset to the start.
