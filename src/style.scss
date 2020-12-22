@@ -5,8 +5,120 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 // App
+
+.video {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 800px;
+
+  &__content {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(black, .7);
+      pointer-events: none;
+
+      .is-playing & {
+        display: none;
+      }
+    }
+  }
+
+  &__play {
+    --btn-color: white;
+    all: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--btn-color);
+    border-radius: 50%;
+
+    &::before {
+      --angle-size: 20px;
+      --angle-color: var(--btn-color);
+
+      content: '';
+      width: 0;
+      height: 0;
+      margin-left: calc(var(--angle-size) / 3);
+      border-style: solid;
+      border-color: transparent;
+      border-left-width: var(--angle-size);
+      border-top-width: calc(var(--angle-size) / 1.5);
+      border-bottom-width: calc(var(--angle-size) / 1.5);
+      border-left-color: var(--angle-color);
+    }
+
+    .is-playing & {
+      display: none;
+    }
+  }
+
+  &__el {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__controls {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-template-columns: repeat(3, min-content) 1fr;
+    padding: 25px 20px;
+    column-gap: 20px;
+    background-color: rgb(70, 58, 120);
+  }
+
+  &__btn {
+    all: unset;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+
+.progress {
+  --size: 4px;
+
+  height: var(--size);
+  background-color: rgba(white, .5);
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, #fff, #fff);
+  background-size: var(--progress, 0) 100%;
+}

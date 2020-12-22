@@ -10,9 +10,22 @@
 </head>
 <body>
 
-  <video>
-    <source src="mov.mp4" type="video/mp4">
-  </video>
+  <div class="video">
+    <div class="video__content">
+      <video class="video__el" muted>
+        <source src="mov.mp4" type="video/mp4">
+      </video>
+
+      <button class="video__play" type="button"></button>
+    </div>
+    <div class="video__controls">
+      <button class="video__btn video__btn--back" type="button">Back 10s</button>
+      <button class="video__btn video__btn--skip" type="button">Skip 10s</button>
+      <button class="video__btn video__btn--reset" type="button">reset</button>
+
+      <div class="progress"></div>
+    </div>
+  </div>
 
   <script src="./index.js"></script>
 </body>
